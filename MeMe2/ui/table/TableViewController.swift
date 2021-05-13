@@ -28,19 +28,16 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 100.0
+        self.tableView.rowHeight = 90.0
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
     
-    // to get the number of rown in the section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // to make the cell reusable
-        //variable meme define the cell content
         let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell")
         let meme = self.memes[(indexPath as NSIndexPath).row]
         // the cell content
@@ -51,8 +48,6 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // instinatite new view controller called memedeatildeviewcontroller
-        //get the meme that i selcted and sent id to the image in the detaildvc
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         let memee = self.memes[(indexPath as NSIndexPath).row]
         detailController.memeImage = memee.memedImage!
@@ -60,9 +55,7 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     @IBAction func addMeme( _ sender: Any ){
-        
         let addmeme = self.storyboard!.instantiateViewController(withIdentifier: "AddMemeViewController") as! AddMemeViewController
         self.navigationController!.present(addmeme, animated: true, completion: nil)
     }
-    
 }

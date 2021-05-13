@@ -15,7 +15,6 @@ class CollectionViewController: UICollectionViewController{
             collectionView.reloadData()
         }
     }
-    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ class CollectionViewController: UICollectionViewController{
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    // MARK: Collection View Data Source
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
@@ -67,5 +65,4 @@ class CollectionViewController: UICollectionViewController{
         let addmeme = self.storyboard!.instantiateViewController(withIdentifier: "AddMemeViewController") as! AddMemeViewController
         self.navigationController!.present(addmeme, animated: true, completion: nil)
     }
-    
 }

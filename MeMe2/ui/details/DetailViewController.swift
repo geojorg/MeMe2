@@ -15,13 +15,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
         self.memedDetailedImage.image = self.memeImage
     }
-
-
 }
